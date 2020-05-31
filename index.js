@@ -1,17 +1,17 @@
-const Discord = require('discord.js');
-const config = require('./config.json');
+const Discord = require("discord.js");
+const { prefix, token } = require("./config.json");
 const client = new Discord.Client();
 
-client.once('ready', () => {
-	console.log('Ready!');
+client.once("ready", () => {
+  console.log("Ready!");
 });
 
-client.on('message', message => {
-	console.log(message.content);
-  if (message.content === '!ping') {
-	// send back "Pong." to the channel the message was sent in
-	message.channel.send('Pong.');
-}
+client.on("message", (message) => {
+  if (message.content.startsWith(`${prefix}ping`)) {
+    message.channel.send("Pong.");
+  } else if (message.content.startsWith(`${prefix}beep`)) {
+    message.channel.send("Boop.");
+  }
 });
 
-client.login(config.token);
+client.login(token);
