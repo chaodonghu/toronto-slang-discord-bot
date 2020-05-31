@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const config = require('./config.json');
 const client = new Discord.Client();
 
 client.once('ready', () => {
@@ -13,4 +14,4 @@ client.on('message', message => {
 }
 });
 
-client.login('NzE2NzI1OTgwNjE3NjM3OTQy.XtP-XQ.fJPooRi4kPmodVphyK5XdsaiE3c');
+client.login(config.token);
